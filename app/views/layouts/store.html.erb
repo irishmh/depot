@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+<head>
+    <title>Pragprog Books Online Store</title>
+    <%= stylesheet_link_tag "depot" , :media => "all" %>
+    <%= javascript_include_tag :defaults %>
+</head>
+<body id="store">
+    <div id="banner">
+        <%= image_tag("logo.png" ) %>
+        <%= @page_title || "Pragmatic Bookshelf" %>
+    </div>
+    <div id="columns">
+        <div id="side">
+            <!--div id="cart">
+                <%= render(:partial => "cart" , :object => @cart) %>
+            </div-->
+            <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+                <%= render(:partial => "cart" , :object => @cart) %>
+            <% end %>
+            <%= Date.today.to_s(:long) %><br />
+            <a href="http://www....">Home</a><br />
+            <a href="http://www..../faq">Questions</a><br />
+            <a href="http://www..../news">News</a><br />
+            <a href="http://www..../contact">Contact</a><br />
+            <br />You've been here <%= pluralize(@count.to_i, "time") %><br />
+        </div>
+        <div id="main">
+            <% if flash[:notice] -%>
+                <div id="notice"><%= flash[:notice] %></div>
+            <% end -%>
+            <% flash[:notice] = nil %>
+            <%= yield :layout %>
+        </div>
+    </div>
+</body>
+</html>
