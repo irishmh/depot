@@ -2941,3 +2941,1590 @@ Rendering store/index
 Rendered store/_cart (0.0ms)
 Rendered store/_cart (15.6ms)
 Completed in 2590ms (View: 125, DB: 0) | 200 OK [http://localhost/store]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddTestData (20080601000003)
+Migrating to CreateProducts (20100125015214)
+Migrating to AddPriceToProduct (20100125020742)
+Migrating to CreateSessions (20100131170730)
+Migrating to CreateLineItems (20100203003633)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (15.6ms)[0m   [0mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer NOT NULL, "order_id" integer NOT NULL, "quantity" integer NOT NULL, "total_price" decimal(8,2) NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100203003633')[0m
+Migrating to CreateOrders (20100206234731)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(10), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100206234731')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("line_items")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("orders")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("products")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 18:38:33) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 2590ms (View: 78, DB: 0) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-06 18:38:38) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs=", "id"=>"4"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (31.2ms)
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/store/add_to_cart/4]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-06 18:38:41) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs=", "id"=>"6"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 6) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/6]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2010-02-06 18:38:45) [POST]
+  Parameters: {"authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+Redirected to http://localhost:3000/store
+Completed in 39ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 18:38:45) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-06 18:38:48) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (15.6ms)
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-06 18:38:49) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs=", "id"=>"6"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 6) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/6]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 18:38:52) [POST]
+  Parameters: {"authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (31.2ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 126ms (View: 83, DB: 2) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 18:40:00) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"M Higgins", "pay_type"=>"cc", "address"=>"W4076 County Road A\r\nElkhorn, WI 53121", "email"=>"irishmhyh@yahoo.com"}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+
+ActionController::UnknownAction (No action responded to save_order. Actions: add_to_cart, checkout, empty_cart, and index):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 18:58:26) [GET]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (7.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (10.0ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (4.0ms)
+Completed in 71ms (View: 23, DB: 0) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 18:59:06) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"Maureen Higgins", "pay_type"=>"check", "address"=>"W4076 County Road A\r\nElkhorn, WI 53121", "email"=>"irishmhyh@yahoo.com"}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+
+NameError (undefined local variable or method `line_items' for #<Order:0x5b00830>):
+  app/models/order.rb:22:in `add_line_items_from_cart'
+  app/models/order.rb:20:in `each'
+  app/models/order.rb:20:in `add_line_items_from_cart'
+  app/controllers/store_controller.rb:48:in `save_order'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 19:04:42) [GET]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 109ms (View: 31, DB: 0) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 19:04:47) [GET]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 19:04:49) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"Maureen Higgins", "pay_type"=>"check", "address"=>"W4076 County Road A\r\nElkhorn, WI 53121", "email"=>"irishmhyh@yahoo.com"}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+
+NameError (undefined local variable or method `line_items' for #<Order:0x73bd200>):
+  app/models/order.rb:17:in `add_line_items_from_cart'
+  app/models/order.rb:15:in `each'
+  app/models/order.rb:15:in `add_line_items_from_cart'
+  app/controllers/store_controller.rb:48:in `save_order'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (68.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 19:16:47) [GET]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (7.0ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart (10.0ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (4.0ms)
+Completed in 112ms (View: 24, DB: 16) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 19:16:52) [GET]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 19:16:55) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"Maureen Higgins", "pay_type"=>"check", "address"=>"W4076 County Road A\r\nElkhorn, WI 53121", "email"=>"irishmhyh@yahoo.com"}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+  [4;36;1mOrder Create (1.0ms)[0m   [0;1mINSERT INTO "orders" ("name", "updated_at", "pay_type", "address", "email", "created_at") VALUES('Maureen Higgins', '2010-02-07 01:16:55', 'check', 'W4076 County Road A
+Elkhorn, WI 53121', 'irishmhyh@yahoo.com', '2010-02-07 01:16:55')[0m
+  [4;35;1mLineItem Create (0.0ms)[0m   [0mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(1, '2010-02-07 01:16:55', 29.95, 4, 1, '2010-02-07 01:16:55')[0m
+  [4;36;1mLineItem Create (1.0ms)[0m   [0;1mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(1, '2010-02-07 01:16:55', 27.75, 6, 1, '2010-02-07 01:16:55')[0m
+Redirected to http://localhost:3000/store
+Completed in 69ms (DB: 3) | 302 Found [http://localhost/store/save_order]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 19:16:55) [GET]
+  [4;35;1mProduct Load (15.6ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-06 19:29:22) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (15.6ms)
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/4]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 19:29:25) [POST]
+  Parameters: {"authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 19:29:27) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"", "pay_type"=>"", "address"=>"", "email"=>""}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (3.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (2.0ms)
+Completed in 71ms (View: 31, DB: 1) | 200 OK [http://localhost/store/save_order]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 19:33:47) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"test2", "pay_type"=>"cc", "address"=>"test2 addr", "email"=>"testemail"}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+  [4;35;1mOrder Create (0.0ms)[0m   [0mINSERT INTO "orders" ("name", "updated_at", "pay_type", "address", "email", "created_at") VALUES('test2', '2010-02-07 01:33:47', 'cc', 'test2 addr', 'testemail', '2010-02-07 01:33:47')[0m
+  [4;36;1mLineItem Create (0.0ms)[0m   [0;1mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(2, '2010-02-07 01:33:47', 29.95, 4, 1, '2010-02-07 01:33:47')[0m
+Redirected to http://localhost:3000/store
+Completed in 78ms (DB: 0) | 302 Found [http://localhost/store/save_order]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 19:33:47) [GET]
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (32.2ms)
+Rendered store/_cart (46.8ms)
+Completed in 131ms (View: 111, DB: 3) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 19:34:16) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (15.6ms)
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 19:35:05) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (3.0ms)
+Rendered store/_cart (2.0ms)
+Completed in 45ms (View: 31, DB: 1) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-06 19:35:09) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs=", "id"=>"4"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhost/store/add_to_cart/4]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-06 19:35:11) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs=", "id"=>"6"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 6) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/store/add_to_cart/6]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-06 19:35:20) [POST]
+  Parameters: {"authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 16, DB: 16) | 200 OK [http://localhost/store/checkout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 19:35:24) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"", "pay_type"=>"", "address"=>"", "email"=>""}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (15.6ms)
+Completed in 137ms (View: 81, DB: 1) | 200 OK [http://localhost/store/save_order]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-06 19:39:24) [POST]
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"test3", "pay_type"=>"po", "address"=>"test3 addr", "email"=>"test4email"}, "authenticity_token"=>"J0lGvT395OG63llicGc8/utkSv26495oSkn7aEtUNRs="}
+  [4;36;1mOrder Create (0.0ms)[0m   [0;1mINSERT INTO "orders" ("name", "updated_at", "pay_type", "address", "email", "created_at") VALUES('test3', '2010-02-07 01:39:24', 'po', 'test3 addr', 'test4email', '2010-02-07 01:39:24')[0m
+  [4;35;1mLineItem Create (0.0ms)[0m   [0mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(3, '2010-02-07 01:39:24', 29.95, 4, 1, '2010-02-07 01:39:24')[0m
+  [4;36;1mLineItem Create (0.0ms)[0m   [0;1mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(3, '2010-02-07 01:39:24', 27.75, 6, 1, '2010-02-07 01:39:24')[0m
+Redirected to http://localhost:3000/store
+Completed in 78ms (DB: 0) | 302 Found [http://localhost/store/save_order]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 19:39:24) [GET]
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.0ms)
+Rendered store/_cart (2.0ms)
+Completed in 43ms (View: 31, DB: 1) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 19:40:38) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddTestData (20080601000003)
+Migrating to CreateProducts (20100125015214)
+Migrating to AddPriceToProduct (20100125020742)
+Migrating to CreateSessions (20100131170730)
+Migrating to CreateLineItems (20100203003633)
+Migrating to CreateOrders (20100206234731)
+Migrating to CreateUsers (20100207021201)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100207021201')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("line_items")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("orders")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("products")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 20:50:52) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 37ms (View: 21, DB: 1) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 20:50:55) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 42ms (View: 22, DB: 1) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 20:51:45) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 20:51:49) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 17ms (View: 1, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 20:51:51) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.0ms)
+Rendered store/_cart (2.0ms)
+Completed in 45ms (View: 32, DB: 1) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 20:52:00) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 36ms (View: 9, DB: 2) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 20:52:03) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 41ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 20:55:25) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:03:57) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 29ms (View: 5, DB: 1) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 21:04:05) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 51ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 21:09:41) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:09:55) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 27ms (View: 3, DB: 2) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 21:10:01) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 40ms (View: 12, DB: 0) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-02-06 21:11:23) [POST]
+  Parameters: {"user"=>{"name"=>"Maureen Higgins", "password_confirmation"=>"wilson", "password"=>"wilson"}, "commit"=>"Add User", "authenticity_token"=>"clGjnoABS56lvj1O4q2s95O7ep29YDxGQoaV6Nkc3LI="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'Maureen Higgins') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "hashed_password", "created_at") VALUES('Maureen Higgins', '602393040.193552639371991', '2010-02-07 03:11:24', '769f33132b73f6bf47a636fcf68e6ad5e4e745d7', '2010-02-07 03:11:24')[0m
+Redirected to http://localhost:3000/users
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:11:24) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 18ms (View: 8, DB: 2) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-02-06 21:17:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/users/1]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:17:10) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 28ms (View: 11, DB: 1) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-02-06 21:19:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users/1]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:7)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:20:03) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:44:27) [GET]
+  [4;36;1mUser Load (15.6ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-02-06 21:45:16) [GET]
+  Parameters: {"id"=>"login"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=login):
+  app/controllers/users_controller.rb:17:in `show'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.8ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 21:45:39) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:46:34) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 21:46:40) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 49ms (View: 17, DB: 0) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-02-06 21:46:50) [POST]
+  Parameters: {"user"=>{"name"=>"Mo", "password_confirmation"=>"wilson", "password"=>"wilson"}, "commit"=>"Add User", "authenticity_token"=>"clGjnoABS56lvj1O4q2s95O7ep29YDxGQoaV6Nkc3LI="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'Mo') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "hashed_password", "created_at") VALUES('Mo', '612928440.345484941803633', '2010-02-07 03:46:50', '1a41de3126405bd4cbe2de3f4705f7586d1fa813', '2010-02-07 03:46:50')[0m
+Redirected to http://localhost:3000/users
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:46:50) [GET]
+  [4;35;1mUser Load (15.6ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 21:47:56) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 21:48:04) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login.html" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 21:52:12) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 21:52:19) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:52:28) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 27ms (View: 12, DB: 2) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-02-06 21:59:17) [GET]
+  Parameters: {"id"=>"login"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=login):
+  app/controllers/users_controller.rb:17:in `show'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (102.4ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 21:59:26) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 37ms (View: 12, DB: 2) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 22:16:48) [GET]
+
+ActionController::RoutingError (No route matches "/admin/lohin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 22:17:02) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 22:19:11) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:19)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 22:33:18) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 22:58:53) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 22:58:53) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-06 22:59:05) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/users/new]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 22:59:05) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 22:59:31) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 22:59:31) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:03:11) [GET]
+
+ActionController::RoutingError (No route matches "/admin/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:03:18) [GET]
+
+ActionController::RoutingError (No route matches "/admin/admin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:03:30) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:03:35) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 23:03:44) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 24ms (DB: 2) | 302 Found [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:8)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:03:44) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM sessions[0m
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:27:36) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:32:22) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 23:32:58) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:32:58) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-06 23:34:56) [GET]
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.0ms)
+Rendered store/_cart (2.0ms)
+Completed in 53ms (View: 37, DB: 2) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:35:08) [GET]
+
+ActionController::RoutingError (No route matches "/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:35:16) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-06 23:45:15) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 16ms (DB: 0) | 302 Found [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-02-06 23:45:15) [GET]
+
+ActionController::RoutingError (No route matches "/admin/login" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-06 23:57:19) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 62ms (DB: 0) | 302 Found [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-06 23:57:19) [GET]
+Rendering template within layouts/store
+Rendering admin/login
+
+ActionView::TemplateError (Missing template admin/_cart.erb in view path app/views) on line #17 of app/views/layouts/store.html.erb:
+14:     <div id="columns">
+15:         <div id="side">
+16:             <!--div id="cart">
+17:                 <%= render(:partial => "cart" , :object => @cart) %>
+18:             </div-->
+19:             <% if @cart %>
+20:                 <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+
+    app/views/layouts/store.html.erb:17
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-06 23:59:32) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-06 23:59:32) [GET]
+Rendering template within layouts/store
+Rendering admin/login
+Completed in 35ms (View: 30, DB: 1) | 200 OK [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-06 23:59:52) [POST]
+  Parameters: {"name"=>"Mo", "commit"=>"Login", "authenticity_token"=>"E/E1Uob6WoE3EY2cpYL4R+6l9EvERELbehHaY23larY=", "password"=>"wilson"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Mo') LIMIT 1[0m
+Redirected to http://localhost:3000/admin
+Completed in 26ms (DB: 2) | 302 Found [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-06 23:59:52) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2010-02-07 00:00:03) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mOrder Load (1.0ms)[0m   [0;1mSELECT * FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/index
+Completed in 105ms (View: 63, DB: 2) | 200 OK [http://localhost/orders]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 00:00:10) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 52ms (View: 10, DB: 4) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-02-07 00:00:12) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 90ms (View: 47, DB: 1) | 200 OK [http://localhost/products]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 00:00:16) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 67ms (View: 0, DB: 2) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 00:00:18) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 105ms (View: 71, DB: 4) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 00:00:21) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 00:02:33) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-07 21:34:36) [GET]
+  [4;36;1mProduct Load (15.6ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 2465ms (View: 78, DB: 16) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 21:34:53) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 21:34:53) [GET]
+Rendering template within layouts/store
+Rendering admin/login
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 21:35:13) [POST]
+  Parameters: {"name"=>"Maureen Higgins", "commit"=>"Login", "authenticity_token"=>"fUt+tiqv5pv5xc/hzlmCtzWddDca+HqXf+yXQptV28E=", "password"=>"wilson"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'Maureen Higgins') LIMIT 1[0m
+Redirected to http://localhost:3000/users
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 21:35:14) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-02-07 21:35:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 109ms (View: 47, DB: 0) | 200 OK [http://localhost/users/1]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-02-07 21:35:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 62ms (View: 16, DB: 0) | 200 OK [http://localhost/users/1/edit]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 21:35:31) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 21:35:39) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 78ms (View: 31, DB: 0) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 21:48:37) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'mh') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "updated_at", "hashed_password", "created_at") VALUES('mh', '398641080.634973374611359', '2010-02-08 03:52:20', 'b1b0b64f1fe8b8b592758650a392955ad6601ff2', '2010-02-08 03:52:20')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 22:00:09) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 22:00:17) [GET]
+Rendering template within layouts/store
+Rendering admin/login
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 22:00:29) [POST]
+  Parameters: {"name"=>"mh", "commit"=>"Login", "authenticity_token"=>"fUt+tiqv5pv5xc/hzlmCtzWddDca+HqXf+yXQptV28E=", "password"=>"wilson"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'mh') LIMIT 1[0m
+Redirected to http://localhost:3000/admin
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 22:00:29) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2010-02-07 22:00:38) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" [0m
+Rendering template within layouts/orders
+Rendering orders/index
+Completed in 78ms (View: 31, DB: 0) | 200 OK [http://localhost/orders]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-02-07 22:00:44) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" [0m
+Rendering template within layouts/products
+Rendering products/index
+Completed in 140ms (View: 109, DB: 0) | 200 OK [http://localhost/products]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 22:00:48) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#logout (for 127.0.0.1 at 2010-02-07 22:00:51) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/admin/logout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 22:00:52) [GET]
+Rendering template within layouts/store
+Rendering admin/login
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 22:01:07) [POST]
+  Parameters: {"name"=>"Maureen Higgins", "commit"=>"Login", "authenticity_token"=>"fUt+tiqv5pv5xc/hzlmCtzWddDca+HqXf+yXQptV28E=", "password"=>"wilson"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'Maureen Higgins') LIMIT 1[0m
+Redirected to http://localhost:3000/admin
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 22:01:07) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 22:01:14) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-07 22:10:09) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/store]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 22:10:14) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/store
+Rendering users/index
+Completed in 125ms (View: 94, DB: 0) | 200 OK [http://localhost/users]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-02-07 22:10:20) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/store
+Rendering products/index
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/products]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2010-02-07 22:10:22) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" [0m
+Rendering template within layouts/store
+Rendering orders/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/orders]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#logout (for 127.0.0.1 at 2010-02-07 22:10:50) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Completed in 16ms (DB: 16) | 302 Found [http://localhost/admin/logout]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 22:10:50) [GET]
+Rendering template within layouts/store
+Rendering admin/login
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-02-07 22:11:00) [POST]
+  Parameters: {"name"=>"mh", "commit"=>"Login", "authenticity_token"=>"fUt+tiqv5pv5xc/hzlmCtzWddDca+HqXf+yXQptV28E=", "password"=>"wilson"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'mh') LIMIT 1[0m
+Redirected to http://localhost:3000/admin
+Completed in 47ms (DB: 0) | 302 Found [http://localhost/admin/login]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-02-07 22:11:00) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/admin]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2010-02-07 22:13:22) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" [0m
+Rendering template within layouts/store
+Rendering orders/index
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/orders]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-02-07 22:14:42) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" [0m
+Rendering template within layouts/store
+Rendering products/index
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/products]
+DEPRECATION WARNING: protect_from_forgery only takes :only and :except options now. :digest and :secret have no effect. (called from C:/matc/ror/depot/app/controllers/application_controller.rb:9)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-02-07 22:14:47) [GET]
+  [4;35;1mUser Load (15.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/store
+Rendering users/index
+Completed in 62ms (View: 31, DB: 16) | 200 OK [http://localhost/users]

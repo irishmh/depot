@@ -13,11 +13,10 @@
     </div>
     <div id="columns">
         <div id="side">
-            <!--div id="cart">
-                <%= render(:partial => "cart" , :object => @cart) %>
-            </div-->
-            <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
-                <%= render(:partial => "cart" , :object => @cart) %>
+            <% if @cart %>
+                <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+                    <%= render(:partial => "cart" , :object => @cart) %>
+                <% end %>
             <% end %>
             <%= Date.today.to_s(:long) %><br />
             <a href="http://www....">Home</a><br />
@@ -25,6 +24,15 @@
             <a href="http://www..../news">News</a><br />
             <a href="http://www..../contact">Contact</a><br />
             <br />You've been here <%= pluralize(@count.to_i, "time") %><br />
+            
+            <% if session[:user_id] %>
+                <br />
+                <%= link_to 'Orders', :controller => 'orders' %><br />
+                <%= link_to 'Products', :controller => 'products' %><br />
+                <%= link_to 'Users', :controller => 'users' %><br />
+                <br />
+                <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %>
+            <% end %>
         </div>
         <div id="main">
             <% if flash[:notice] -%>
