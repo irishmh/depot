@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   layout "store"
   before_filter :authorize, :except => :login
+  before_filter :set_locale
   helper :all # include all helpers, all the time
   # protect_from_forgery # See ActionController::RequestForgeryProtection for details
   protect_from_forgery :secret => '8fc080370e56e929a2d5afca5540a0f7'
@@ -24,5 +25,18 @@ protected
     @total_orders = Order.count
   end
 
-
-end
+  def set_locale
+    session[:locale] = params[:locale] if params[:locale]
+    I18n.locale = session[:locale] || I18n.default_locale
+    locale_path = "#{LOCALES_DIRECTORY}#{I18n.locale}.yml"
+    unless I18n.load_path.include? locale_path
+      I18n.load_path << locale_path
+      I18n.backend.send(:init_translations)
+    end
+    rescue Exception => err
+      logger.error err
+      flash.now[:notice] = "#{I18n.locale} translation not available"
+      I18n.load_path -= [locale_path]
+      I18n.locale = session[:locale] = I18n.default_locale
+    end
+  end

@@ -43,4 +43,7 @@ Rails::Initializer.run do |config|
     :session_key => '_depot_session' ,  
     :secret => 'f914e9b1bbdb829688de8512f...9b1810a4e238a61dfd922dc9dd62521'
   }
+  
+  #register default xml handlers - re pg 187 - but ours already is...
+  # Mime::Type.register "image/jpg" , :jpg
 end
