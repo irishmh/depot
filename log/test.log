@@ -1,0 +1,243 @@
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" IS NULL) LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" IS NULL) LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."title" IS NULL) LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE ("products"."title" = 'My Book Title') LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 80244333) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 80244333) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 80244333) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+
+
+Processing AdminController#index (for 0.0.0.0 at 2010-02-27 21:18:14) [GET]
+  [4;36;1mUser Load (15.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 16ms (DB: 16) | 302 Found [http://test.host/admin]
+
+
+Processing AdminController#index (for 0.0.0.0 at 2010-02-27 21:23:53) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 16) | 302 Found [http://test.host/admin]
+  [4;36;1mUser Load (15.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 413685242) [0m
+
+
+Processing AdminController#login (for 0.0.0.0 at 2010-02-27 21:39:41) [POST]
+  Parameters: {"name"=>"dave", "password"=>"wrong"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'dave') LIMIT 1[0m
+Rendering template within layouts/store
+Rendering admin/login
+Completed in 16ms (View: 16, DB: 16) | 200 OK [http://test.host/admin/login?name=dave&password=wrong]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 413685242) [0m
+
+
+Processing AdminController#index (for 0.0.0.0 at 2010-02-27 21:39:41) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 413685242) LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "orders" [0m
+Rendering template within layouts/store
+Rendering admin/index
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://test.host/admin]
+
+
+Processing AdminController#index (for 0.0.0.0 at 2010-02-27 21:39:41) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/admin/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/admin]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 413685242) [0m
+
+
+Processing AdminController#login (for 0.0.0.0 at 2010-02-27 21:39:41) [POST]
+  Parameters: {"name"=>"dave", "password"=>"secret"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'dave') LIMIT 1[0m
+Redirected to http://test.host/admin
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/admin/login?name=dave&password=secret]
+  [4;36;1mLineItem Delete all (0.0ms)[0m   [0;1mDELETE FROM "line_items" WHERE 1=1[0m
+  [4;35;1mOrder Delete all (0.0ms)[0m   [0mDELETE FROM "orders" WHERE 1=1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-27 22:31:53) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 265ms (View: 47, DB: 0) | 200 OK [http://www.example.com/store/index]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-27 22:31:53) [PUT]
+  Parameters: {"id"=>"1007306237"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.6ms)
+Rendered store/_cart (15.6ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store/add_to_cart]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-27 22:31:53) [POST]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-27 22:31:53) [POST]
+  Parameters: {"order"=>{"name"=>"Dave Thomas", "pay_type"=>"check", "address"=>"123 The Street", "email"=>"dave@pragprog.com"}}
+  [4;35;1mOrder Create (0.0ms)[0m   [0mINSERT INTO "orders" ("name", "updated_at", "pay_type", "address", "email", "created_at") VALUES('Dave Thomas', '2010-02-28 04:31:53', 'check', '123 The Street', 'dave@pragprog.com', '2010-02-28 04:31:53')[0m
+  [4;36;1mLineItem Create (0.0ms)[0m   [0;1mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(980190963, '2010-02-28 04:31:53', 1234.0, 1007306237, 1, '2010-02-28 04:31:53')[0m
+Redirected to http://www.example.com/store
+Completed in 31ms (DB: 0) | 302 Found [http://www.example.com/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-27 22:31:53) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store]
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "line_items" WHERE ("line_items".order_id = 980190963) [0m
+  [4;36;1mLineItem Load (0.0ms)[0m   [0;1mSELECT * FROM "line_items" WHERE ("line_items".order_id = 980190963) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+  [4;36;1mLineItem Delete all (0.0ms)[0m   [0;1mDELETE FROM "line_items" WHERE 1=1[0m
+  [4;35;1mOrder Delete all (0.0ms)[0m   [0mDELETE FROM "orders" WHERE 1=1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 80244333) [0m
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-27 22:32:09) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (15.6ms)
+Completed in 250ms (View: 47, DB: 16) | 200 OK [http://www.example.com/store/index]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-27 22:32:10) [PUT]
+  Parameters: {"id"=>"1007306237"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://www.example.com/store/add_to_cart]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-27 22:32:10) [POST]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-27 22:32:10) [POST]
+  Parameters: {"order"=>{"name"=>"Dave Thomas", "pay_type"=>"check", "address"=>"123 The Street", "email"=>"dave@pragprog.com"}}
+  [4;36;1mOrder Create (0.0ms)[0m   [0;1mINSERT INTO "orders" ("name", "updated_at", "pay_type", "address", "email", "created_at") VALUES('Dave Thomas', '2010-02-28 04:32:10', 'check', '123 The Street', 'dave@pragprog.com', '2010-02-28 04:32:10')[0m
+  [4;35;1mLineItem Create (0.0ms)[0m   [0mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(980190963, '2010-02-28 04:32:10', 1234.0, 1007306237, 1, '2010-02-28 04:32:10')[0m
+Redirected to http://www.example.com/store
+Completed in 16ms (DB: 0) | 302 Found [http://www.example.com/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-27 22:32:10) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store]
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."name" = 'Dave Thomas') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "line_items" WHERE ("line_items".order_id = 980190963) [0m
+  [4;35;1mLineItem Load (0.0ms)[0m   [0mSELECT * FROM "line_items" WHERE ("line_items".order_id = 980190963) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+  [4;35;1mLineItem Delete all (0.0ms)[0m   [0mDELETE FROM "line_items" WHERE 1=1[0m
+  [4;36;1mOrder Delete all (0.0ms)[0m   [0;1mDELETE FROM "orders" WHERE 1=1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 80244333) [0m
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-27 22:32:10) [PUT]
+  Parameters: {"id"=>"1007306237"}
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 47ms (View: 47, DB: 0) | 200 OK [http://www.example.com/store/add_to_cart]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-02-27 22:32:10) [PUT]
+  Parameters: {"id"=>"80244333"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 80244333) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://www.example.com/store/add_to_cart]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-27 22:32:10) [POST]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-27 22:32:10) [POST]
+  Parameters: {"order"=>{"name"=>"Dave Thomas", "pay_type"=>"check", "address"=>"123 The Street", "email"=>"dave@pragprog.com"}}
+  [4;35;1mOrder Create (0.0ms)[0m   [0mINSERT INTO "orders" ("name", "updated_at", "pay_type", "address", "email", "created_at") VALUES('Dave Thomas', '2010-02-28 04:32:10', 'check', '123 The Street', 'dave@pragprog.com', '2010-02-28 04:32:10')[0m
+  [4;36;1mLineItem Create (0.0ms)[0m   [0;1mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(980190963, '2010-02-28 04:32:10', 1234.0, 1007306237, 1, '2010-02-28 04:32:10')[0m
+Redirected to http://www.example.com/store
+Completed in 16ms (DB: 16) | 302 Found [http://www.example.com/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-27 22:32:10) [GET]
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store]
+  [4;36;1mOrder Load (0.0ms)[0m   [0;1mSELECT * FROM "orders" WHERE ("orders"."name" = 'Dave Thomas') LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "line_items" WHERE ("line_items".order_id = 980190963) [0m
+  [4;36;1mLineItem Load (0.0ms)[0m   [0;1mSELECT * FROM "line_items" WHERE ("line_items".order_id = 980190963) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1007306237) [0m
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2010-02-27 22:32:10) [POST]
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2010-02-27 22:32:10) [POST]
+  Parameters: {"order"=>{"name"=>"Mike Clark", "pay_type"=>"cc", "address"=>"345 The Avenue", "email"=>"mike@pragmaticstudio.com"}}
+  [4;36;1mOrder Create (0.0ms)[0m   [0;1mINSERT INTO "orders" ("name", "updated_at", "pay_type", "address", "email", "created_at") VALUES('Mike Clark', '2010-02-28 04:32:10', 'cc', '345 The Avenue', 'mike@pragmaticstudio.com', '2010-02-28 04:32:10')[0m
+  [4;35;1mLineItem Create (15.6ms)[0m   [0mINSERT INTO "line_items" ("order_id", "updated_at", "total_price", "product_id", "quantity", "created_at") VALUES(980190964, '2010-02-28 04:32:10', 2345.0, 80244333, 1, '2010-02-28 04:32:10')[0m
+Redirected to http://www.example.com/store
+Completed in 16ms (DB: 16) | 302 Found [http://www.example.com/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-02-27 22:32:10) [GET]
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.0ms)
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://www.example.com/store]
+  [4;35;1mOrder Load (0.0ms)[0m   [0mSELECT * FROM "orders" WHERE ("orders"."name" = 'Mike Clark') LIMIT 1[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "line_items" WHERE ("line_items".order_id = 980190964) [0m
+  [4;35;1mLineItem Load (0.0ms)[0m   [0mSELECT * FROM "line_items" WHERE ("line_items".order_id = 980190964) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 80244333) [0m
